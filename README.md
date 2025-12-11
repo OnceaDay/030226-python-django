@@ -1,4 +1,4 @@
-# Python Django Immersive 112425
+# Python Django Immersive
 
 ## Commands To Get Started
 
@@ -20,7 +20,7 @@ django-admin startproject project_name_here
 cd project_name_here
 ```
 
-## Create New App
+### Create New App
 
 ```bash
 python manage.py startapp app_name_here
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-## Configure URL Files
+### Configure URL Files
 
 Inside `app_name_here.urls.py`:
 
@@ -61,6 +61,28 @@ urlpatterns = [
 ]
 ```
 
-## Build Views
+### Build Views
 
 From here you may build your views following best practices.
+
+## Lessons
+
+- [Day One - Intro to Django](./day-1/)
+
+- [Day Two](./day-2/)
+
+- [Day Three](./day-3/)
+
+- [Day Four](./day-4/)
+
+- [Day Five](./day-5/)
+
+- [Day Six](./day-6/)
+
+- [Day Seven](./day-7/)
+
+- [Day Eight](./day-8/)
+
+- [Day Nine](./day-9/)
+
+- [Day Ten](./day-10/)
