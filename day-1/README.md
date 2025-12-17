@@ -3,7 +3,7 @@
 ## Topics
 
 - What is a web server
-- MVC frameworkers
+- MVC frameworks
 - Virtual environment for Python
 - `django-admin` and `manage.py`
 - Creating routes, views, and templates
@@ -40,7 +40,7 @@ The project can be considered the administrative core for Django's web server an
 
 You can see the default Django landing page with `python manage.py runserver` and going to http://localhost:8000 in a browser (for students who can't access localhost they should use 127.0.0.1:8000 instead).
 
-## Create New Application
+### Create New Application
 
 ```bash
 python manage.py startapp app_name_here
@@ -59,7 +59,7 @@ INSTALLED_APPS = [
 
 This registers the application with the core project meaning it can now be accessed.
 
-## Configure URL Files
+### Configure URL Files
 
 Create a new file named `urls.py` inside of `app_name_here`.
 
@@ -109,7 +109,7 @@ def view_two(request):
     return render(request, "app_name_here/view_two.html)
 ```
 
-## Build HTML Templates
+### Build HTML Templates
 
 These are simple views that will serve an HTML page using the `return render` syntax.
 
@@ -159,7 +159,7 @@ Create `view_two.html`:
 
 Run the server in the terminal with `python manage.py runserver` at the project's root and navigate to both http://localhost:8000 and http://localhost:8000/view_two.
 
-## Adding a Base Template
+### Adding a Base Template
 
 Because there's a lot of similar code between the two examples. In order to keep code DRY (Don't Repeat Yourself) we can use a base template.
 
@@ -202,7 +202,7 @@ Change the other templates:
 
 The website will look the same however now we can apply code to `base.html` and it will be applied to all templates when they render.
 
-## Adding Context
+### Adding Context
 
 Create an additional route in `urls.py`:
 
@@ -257,7 +257,7 @@ You may use methods in the variable tags as well but they aren't called with the
 {% endblock %}
 ```
 
-## Using Dynamic URLs
+### Using Dynamic URLs
 
 Dynamic urls will be more useful in later lessons with the addition of models.
 
@@ -299,10 +299,6 @@ Inside `addition.html`:
 ```
 
 You can test this route with multiple parameters.
-
-## Recap
-
-For the recap it's recommended to start first explain the terminal commands again and then get into the built out files.
 
 ## Exercises
 

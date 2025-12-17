@@ -18,18 +18,18 @@ def show_book(request, slug):
     return render(request, 'catalog/show_book.html', context)
 
 def author_bio(request, id):
-    try:
-        author = Author.objects.get(pk=id)
-        # pk stands for primary key a.k.a. id
-        author_books = Book.objects.filter(author=author)
-        context = {
-            "author": author,
-            "author_books": author_books
-        }
-        return render(request, "catalog/author_bio.html", context)
-    except: # if the author doesnt exist do something else
-        raise Http404("Author not found")
+    author = get_object_or_404(Author, pk=id)
+    author_books = Book.objects.filter(author=author)
+    context = {
+        "author": author,
+        "author_books": author_books
+    }
+    return render(request, "catalog/author_bio.html", context)
     
+
+def four_oh_four(request, exception=None):
+    return render(request, "404.html", { "exception": exception }, status=404)
+
 
 def slugify(unslugified_string):
     return unslugified_string.replace(" ", "-").lower()
