@@ -1,6 +1,8 @@
 # Day Six
 
-## Topics - Mini-Project
+## Topics
+
+- Mini Project
 
 ## Deliverables
 

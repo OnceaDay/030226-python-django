@@ -1,15 +1,13 @@
 # Day Four
 
-## Topics - Users and Auth
+## Topics
 
 - CRUD
 - Django Forms
 - Django ModelForms
 - Handling post requests
 
-## Lesson
-
-### CRUD Basics
+## Lesson - CRUD with Models
 
 #### Create
 

@@ -69,20 +69,20 @@ From here you may build your views following best practices.
 
 - [Day One - Intro to Django](./day-1/)
 
-- [Day Two](./day-2/)
+- [Day Two - Mini Project](./day-2/)
 
-- [Day Three](./day-3/)
+- [Day Three - Django Models](./day-3/)
 
-- [Day Four](./day-4/)
+- [Day Four - CRUD with Models](./day-4/)
 
-- [Day Five](./day-5/)
+- [Day Five - Authentication and Authorization](./day-5/)
 
-- [Day Six](./day-6/)
+- [Day Six - Mini-Project](./day-6/)
 
-- [Day Seven](./day-7/)
+- [Day Seven - Class-Based Views](./day-7/)
 
-- [Day Eight](./day-8/)
+- [Day Eight - Django As An API](./day-8/)
 
-- [Day Nine](./day-9/)
+- [Day Nine - Capstone Project](./day-9/)
 
-- [Day Ten](./day-10/)
+- [Day Ten - Capstone Project](./day-10/)

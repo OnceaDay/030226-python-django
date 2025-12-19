@@ -1,12 +1,12 @@
 # Day Five
 
-## Topics - Users and Auth
+## Topics
 
 - User model
 - Authentication routes
 - Authorization
 
-## Lesson
+## Lesson - Authentication and Authorization
 
 ### Adding User Models
 
