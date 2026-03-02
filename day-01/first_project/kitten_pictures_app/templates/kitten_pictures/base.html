@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitten Pictures on Django</title>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url 'homepage' %}">Homepage</a>
+
+        <a href="{% url 'about' %}">About</a>
+
+        <a href="{% url 'gallery' %}">Gallery</a>
+    </nav>
+
+    {% comment %} special django tags that allow us to insert content {% endcomment %}
+    {% block content %}
+    {% endblock %}
+
+    <footer>Copyright Cat Pics 2026</footer>
+
+</body>
+</html>

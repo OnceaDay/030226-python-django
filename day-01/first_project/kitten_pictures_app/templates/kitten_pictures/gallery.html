@@ -1,0 +1,19 @@
+{% extends "kitten_pictures/base.html" %}
+
+{% block content %}
+
+<h1>Gallery</h1>
+
+{% comment %} example of calling .upper with a string {% endcomment %}
+<h2>Current user: {{ current_user.upper }}</h2>
+
+<p>Number of Images: {{ num_images }}</p>
+
+{% comment %} example of a `for` loop to create a bunch of images {% endcomment %}
+{% for kitten_image_url in images %}
+
+    <img src="{{ kitten_image_url }}" alt="kitten" />
+
+{% endfor %}
+
+{% endblock %}

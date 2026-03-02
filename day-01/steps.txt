@@ -34,3 +34,8 @@
 9. Create a folder in MY_APP called `templates` and a subfolder named `MY_APP`. Add a new `homepage.html`.
 
 10. Run server in the terminal --> `python manage.py runserver`
+
+Adding more pages:
+1. Add a url for that new page
+2. Write a new view for that new page
+3. Make a new html file / template for that new page
