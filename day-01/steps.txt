@@ -1,0 +1,36 @@
+1. Set up the virtual environment
+    a. in the terminal --> `python -m venv venv`
+    b. this will set up our virtual space
+    c. activate the virtual environment
+2. Download django with pip
+    a. in the terminal --> `pip install django`
+3. Create a new project using django-admin
+    a. in the terminal --> `django-admin startproject SOME_PROJECT`
+    b. use `cd` to get into your project --> `cd SOME_PROJECT`
+4. Create a new application that's part of our project
+    a. the project has a bunch of core files
+    b. the application is the important part where all our routes and html, and other things go
+    c. in the terminal --> `python manage.py startapp MY_APP`
+5. Register the app so the project knows it exists
+    a. inside SOME_PROJECT/settings.py go to INSTALLED_APPS and add `MY_APP`
+    b. to test in the terminal --> `python manage.py runserver`
+6. Setting up the urls so that we can use urls inside the app
+    a. when you have a server you need to know what urls inside the server go to which pages
+    b. go to SOME_PROJECT/urls.py
+    c. change `from django.urls import path` to from django.urls import path, include`
+    d. add to urlpatterns --> `path("", include("MY_APP.urls"))`
+7. Create a urls.py inside of MY_APP
+    a. add the following import: `from django.urls import path`
+    b. create an empty list named `urlpatterns`
+    c. in your imports add: `from . import views`
+    d. create a path in urlpatterns: `path("", views.homepage)`
+8. Create a new view inside MY_APP/views.py
+    a. create a new function `homepage` similar to this:
+    ```
+    def homepage(request):
+        return render(request, "MY_APP/homepage.html")
+    ```
+
+9. Create a folder in MY_APP called `templates` and a subfolder named `MY_APP`. Add a new `homepage.html`.
+
+10. Run server in the terminal --> `python manage.py runserver`
