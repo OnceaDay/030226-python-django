@@ -1,0 +1,15 @@
+{% extends "anime_app/base.html" %}
+
+{% block content %}
+  <div class="card" style="max-width:640px;">
+    <h1 style="font-size:28px;">Are you sure you want to delete {{ anime.name }}?</h1>
+
+    <form method="post">
+      {% csrf_token %}
+      <p>
+        <a href="{% url 'home' %}">Go Back</a>
+      </p>
+      <button type="submit" style="background:#dc2626;">Confirm Delete</button>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "anime_app/base.html" %}
+
+{% block content %}
+  <h1>We ♥ Anime</h1>
+  <p class="sub">Add a show, then edit or delete it anytime.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2 style="margin:0 0 10px;">Your Anime List</h2>
+
+      {% if all_anime %}
+        <ul>
+          {% for anime in all_anime %}
+            <li>
+              <strong>{{ anime.title }}</strong>
+
+              <span class="pill">{{ anime.main_character }}</span>
+
+              <span class="pill">Runtime: {{ anime.runtime }} min</span>
+
+              <span class="pill">Year: {{ anime.year_of_release }}</span>
+
+              <span class="pill">Genre: {{ anime.get_genre_display }}</span>
+
+              {% if anime.rating %}
+                <span class="pill">
+                  Rating:
+                  {% if anime.get_rating_display %}
+                    {{ anime.get_rating_display }}
+                  {% else %}
+                    {{ anime.rating }}
+                  {% endif %}
+                </span>
+              {% endif %}
+
+              <span style="margin-left:10px;">
+                <a href="{% url 'edit_anime' anime.id %}">Edit</a>
+                |
+                <a class="delete" href="{% url 'delete_anime' anime.id %}">Delete</a>
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="sub" style="margin:10px 0 0;">No anime yet. Add your first one on the right →</p>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <h2 style="margin:0 0 10px;">Add New Anime</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add New Anime</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
