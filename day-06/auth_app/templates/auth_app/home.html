@@ -1,0 +1,28 @@
+{% extends "auth_app/base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+<h1>Welcome to Authentication & Authorization</h1>
+
+<p class="lead">
+Build a secure user flow with signup, login, logout, and protected profile access.
+</p>
+
+<p class="tagline">
+Bustin' Out of L Seven!!!
+</p>
+
+</div>
+
+<div class="page-actions">
+{% if request.user.is_authenticated %}
+<a class="btn" href="{% url 'profile' %}">Go to Profile</a>
+{% else %}
+<a class="btn" href="{% url 'signup' %}">Create Account</a>
+<a class="btn btn-secondary" href="{% url 'login_user' %}">Login</a>
+{% endif %}
+</div>
+
+{% endblock %}

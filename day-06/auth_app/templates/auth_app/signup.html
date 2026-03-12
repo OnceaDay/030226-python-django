@@ -1,0 +1,66 @@
+{% extends "auth_app/base.html" %}
+
+{% block content %}
+<section class="card auth-card">
+    <div class="card-header">
+        <h1>Create Account</h1>
+        <p>Sign up to access your account and protected profile page.</p>
+    </div>
+
+    <form method="POST" class="auth-form">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-error">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username }}
+            {% if form.username.help_text %}
+                <small class="help-text">{{ form.username.help_text }}</small>
+            {% endif %}
+            {% if form.username.errors %}
+                <div class="field-error">{{ form.username.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="field-error">{{ form.email.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password1.id_for_label }}">Password</label>
+            {{ form.password1 }}
+            {% if form.password1.help_text %}
+                <small class="help-text">{{ form.password1.help_text|safe }}</small>
+            {% endif %}
+            {% if form.password1.errors %}
+                <div class="field-error">{{ form.password1.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+            {{ form.password2 }}
+            {% if form.password2.help_text %}
+                <small class="help-text">{{ form.password2.help_text|safe }}</small>
+            {% endif %}
+            {% if form.password2.errors %}
+                <div class="field-error">{{ form.password2.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="auth-actions">
+            <button type="submit" class="btn-primary">Create Account</button>
+            <a href="{% url 'login_user' %}" class="btn-secondary">Already have an account?</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

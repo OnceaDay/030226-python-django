@@ -1,0 +1,74 @@
+{% extends "auth_app/base.html" %}
+
+{% block content %}
+<section class="card profile-card">
+    <div class="card-header">
+        <h1>Profile</h1>
+        <p>Your basic account and profile details.</p>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="profile-form">
+        {% csrf_token %}
+
+        <div class="profile-row">
+            <label>Username</label>
+            <div class="readonly-field">{{ request.user.username }}</div>
+        </div>
+
+        <div class="profile-row">
+            <label>Email</label>
+            <div class="readonly-field">{{ request.user.email }}</div>
+        </div>
+
+        {% if profile.profile_photo %}
+        <div class="profile-row">
+            <label>Current Photo</label>
+            <div class="profile-photo-wrap">
+                <img
+                    src="{{ profile.profile_photo.url }}"
+                    alt="{{ request.user.username }} profile photo"
+                    class="profile-photo-preview"
+                >
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="profile-row">
+            <label for="{{ form.bio.id_for_label }}">Bio</label>
+            {{ form.bio }}
+            {% if form.bio.errors %}
+                <div class="field-error">{{ form.bio.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="profile-row">
+            <label for="{{ form.age.id_for_label }}">Age</label>
+            {{ form.age }}
+            {% if form.age.errors %}
+                <div class="field-error">{{ form.age.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="profile-row">
+            <label for="{{ form.location.id_for_label }}">Location</label>
+            {{ form.location }}
+            {% if form.location.errors %}
+                <div class="field-error">{{ form.location.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="profile-row">
+            <label for="{{ form.profile_photo.id_for_label }}">Profile Photo</label>
+            {{ form.profile_photo }}
+            {% if form.profile_photo.errors %}
+                <div class="field-error">{{ form.profile_photo.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="profile-actions">
+            <button type="submit" class="btn-primary">Save Profile</button>
+            <a href="{% url 'home' %}" class="btn-secondary">Back Home</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

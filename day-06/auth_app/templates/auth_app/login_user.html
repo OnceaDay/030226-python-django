@@ -1,0 +1,41 @@
+{% extends "auth_app/base.html" %}
+
+{% block content %}
+<section class="card auth-card">
+    <div class="card-header">
+        <h1>Login</h1>
+        <p>Enter your credentials to access your account.</p>
+    </div>
+
+    <form method="POST" class="auth-form">
+        {% csrf_token %}
+
+        {% if message %}
+            <div class="alert alert-error">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="field-error">{{ form.username.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">Password</label>
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div class="field-error">{{ form.password.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="auth-actions">
+            <button type="submit" class="btn-primary">Login Now</button>
+            <a href="{% url 'signup' %}" class="btn-secondary">Need an account?</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Auth</title>
+    <link rel="stylesheet" href="{% static 'auth_app/style.css' %}">
+</head>
+<body>
+
+    <div class="page-shell">
+        <div class="container">
+
+            <nav class="site-nav">
+                <div class="nav-left">
+                    <span class="brand">User Auth</span>
+                    <a href="{% url 'home' %}">Home</a>
+                </div>
+
+                <div class="nav-right">
+                    {% if request.user.is_authenticated %}
+                        <span class="user-chip">
+                            {{ request.user.username }} - {{ request.user.email }}
+                        </span>
+                        <a href="{% url 'profile' %}">Profile</a>
+                        <a href="{% url 'logout_user' %}">Logout</a>
+                    {% else %}
+                        <a href="{% url 'signup' %}">Signup</a>
+                        <a href="{% url 'login_user' %}">Login</a>
+                    {% endif %}
+                </div>
+            </nav>
+
+            <main class="card">
+                {% block content %}
+                {% endblock %}
+            </main>
+
+        </div>
+    </div>
+
+</body>
+</html>
